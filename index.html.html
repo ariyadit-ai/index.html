@@ -1,0 +1,279 @@
+<!doctype html>
+<html lang="th">
+ <head><script>window["__codeletBootstrap__"]=JSON.parse('{"A":"A","B":"20261007-04-b4189fb","C":{"Abril Fatface":"YACgEZbkUVE,0","Alfa Slab One":"YACgEYS9sJU,0","Anton":"YACgEcYqQ-A,0","Archivo Black":"YACgEZulLoA,0","Archivo":"YAHO2-t-jNE,0","Arial":"YAGyDvJ_4Ts,0","Baloo 2":"YAHO2IcQUcM,0","Barlow Condensed":"YAFdJljEuFc,0","Bebas Neue":"YACgESME5ew,0","Bricolage Grotesque":"YAFyMcdwzpc,0","Canva Sans":"YAFdJjTk5UU,1","Caveat":"YALBs2ploWQ,0","Cinzel":"YACgEeV8bIQ,0","Cormorant Garamond":"YAFdJhX-538,0","Courier New":"YAGzXiGs0_8,0","Courier Prime":"YAD1aFjegN8,0","DM Sans":"YAD1aU3sLnI,0","DM Serif Display":"YAD1aYG82rc,0","Figtree":"YAHO2b-mV7A,0","Forum":"YACgEcnnqB4,0","Fraunces":"YAFdJpU7Kkk,0","Fredoka":"YACgEZml080,0","Georgia":"YAGzXkO0pEM,0","Hanken Grotesk":"YAHO2VB9G0I,0","Helvetica":"YAFcf7zkXN0,0","IBM Plex Mono":"YAFdJkmvhGI,0","IBM Plex Sans":"YAFdJgT0SHI,0","Impact":"YAFcfnjI7Vk,0","Instrument Serif":"YAHFeOnZNEk,0","Inter":"YAFdJvSyp_k,3","Italiana":"YAHO2Toik_w,0","Jacques Francois":"YAHO2a5g66Q,0","JetBrains Mono":"YAFdJksXcAk,0","Josefin Sans":"YAFdJjvw9Ps,0","Karla":"YAHO2V2NSXM,0","Lato":"YAFdJuFCnaw,0","Libre Baskerville":"YACgEUFdPdA,0","Lobster":"YAD8SnSjSFI,0","Lora":"YACgEXvxf8Q,0","Manrope":"YAHO2b2feC4,0","Merriweather":"YACgEXvHxxs,0","Montserrat":"YAFdtQi73Xs,0","Noto Sans JP":"YAFdJiHXlcI,0","Noto Sans KR":"YAGsojZj-RQ,0","Nunito Sans":"YAFdtQJYB9w,1","Nunito":"YAFdJoNRMmU,1","Oleo Script":"YACgEQQ14jI,0","Oswald":"YACgEQY10lw,0","Outfit":"YAHO2nVlg14,0","Pacifico":"YADLjORQ1u4,0","Playfair Display":"YAFdJhem5V8,1","Plus Jakarta Sans":"YAHO2gdhi18,0","Poppins":"YAFdJjbTu24,1","Press Start 2P":"YAFyGr-8pmQ,0","Quicksand":"YAFdJpYtCxE,1","Raleway":"YAFdJhmxbVQ,1","Roboto Slab":"YAFdJswIKAg,0","Rockwell":"YAFcfyVZnN0,0","Rye":"YACgEdQP21k,0","Sarabun":"YAFdJssSnME,0","Segoe UI":"YAHNdRD1Klw,0","Source Sans 3":"YAG4lO1Mj10,0","Space Grotesk":"YAHO2sjPCSM,0","Space Mono":"YADW1-vpsoc,0","Spectral":"YAHO2rVUHIM,0","Times New Roman":"YAGzXW3gftg,0","Trebuchet MS":"YAFcfrglpVA,0","Ubuntu":"YACgERDU--Q,0","Verdana":"YAGzXTctYtQ,0","Work Sans":"YAGXhLOKv44,0","Yellowtail":"YACgEYG4kG4,0"}}');</script><script src="/_sdk/6542d56fbfe7a3eb.telemetry_sdk.js" integrity="sha512-ECdM0nK7EkwDuOqho2qxgyRQXyBHk9hZqRKMBr+Xsu6zjeHlt+qkO2N2YRiHN7Kg4e1fEHDhjIp4bGJYVypv1g=="></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ระบบนับสินค้า</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+  <style>
+    :root { --ink:#3f3428; --cream:#f8f2e8; --paper:#fffdf8; --line:#e7d8bf; --brown:#76573d; --gold:#c9974e; --green:#3d7a57; --red:#b54943; }
+    * { box-sizing:border-box; }
+    body { font-family:"Noto Sans Thai",sans-serif; color:var(--ink); background:var(--cream); }
+    .app-shell { width:100%; min-height:calc(100 * min(var(--vh, 1vh), 1vh)); background:radial-gradient(circle at 8% 0%,#fffdf5 0,transparent 30%),radial-gradient(circle at 100% 100%,#ecd6b6 0,transparent 34%),var(--cream); }
+    .panel { background:rgba(255,253,248,.93); border:1px solid var(--line); box-shadow:0 18px 45px rgba(85,59,34,.09); }
+    .nav-btn,.action-btn { transition:transform .18s ease,box-shadow .18s ease,background .18s ease; }
+    .nav-btn:hover,.action-btn:hover { transform:translateY(-2px); box-shadow:0 12px 24px rgba(91,63,36,.16); }
+    .nav-btn:focus-visible,.action-btn:focus-visible,input:focus-visible,select:focus-visible { outline:3px solid #c9974e99; outline-offset:2px; }
+    .main-tile { min-height:170px; }
+    .view { display:none; animation:reveal .32s ease both; }
+    .view.active { display:block; }
+    @keyframes reveal { from{opacity:0;transform:translateY(9px)} to{opacity:1;transform:translateY(0)} }
+    .table-wrap { overflow-x:auto; border:1px solid var(--line); border-radius:18px; }
+    table { min-width:760px; width:100%; border-collapse:collapse; }
+    th { background:#f3e8d6; font-size:.82rem; letter-spacing:.03em; }
+    th,td { padding:.8rem .9rem; text-align:left; border-bottom:1px solid #eee2d0; vertical-align:middle; }
+    tr:last-child td { border-bottom:0; }
+    .toast { opacity:0; pointer-events:none; transform:translateY(12px); transition:.25s ease; }
+    .toast.show { opacity:1; transform:translateY(0); }
+    .hidden-row { display:none !important; }
+  </style>
+  <script src="https://cdn.tailwindcss.com/3.4.17" type="text/javascript"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lucide@0.577.0/dist/umd/lucide.min.js" type="text/javascript"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js" type="text/javascript"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.8.4/jspdf.plugin.autotable.min.js" type="text/javascript"></script>
+  <script src="/_sdk/6c2ecc939521f244.data_sdk.js" type="text/javascript" integrity="sha512-gRx8s+XsZDN6mSIQu2sivLZysbV0WHhb5kXNUWlgVb5lCMU1foJYukyMEDPv8Tnoocb8iwqB4XdRrWc7oEGzIQ=="></script>
+  <script src="/_sdk/076b13200873adb1.editing_sdk.js" type="text/javascript" integrity="sha512-ZtNtm8+39bIBEM+BqVFLF2DGJcZDSJkgYAfQa13MND+siMeCmOpG2FoU1Iv6fGQyEH3Y1nIM5T9xiJG2Bq/ozw=="></script>
+  <script src="/_sdk/ab4336f91e694f96.resizing_sdk.js" type="text/javascript" integrity="sha512-cxmeUrBrNlwwLr+tEu/iwM5F3boeK4qDMoH3QjUPqJptkO5NkaDVhQvyIHIn+3EflI5/uubWzkSA78B1tCswgA=="></script>
+ </head>
+ <body data-template-id="__page-root">
+  <div class="app-shell">
+   <header class="w-full px-4 pt-5 sm:px-8">
+    <div class="max-w-6xl mx-auto flex items-center justify-between panel rounded-2xl px-5 py-4">
+     <button type="button" class="flex items-center gap-3 text-left" onclick="showView('home')"> <span class="w-10 h-10 rounded-xl flex items-center justify-center text-white" style="background:#76573d"><i data-lucide="package-check" class="w-5 h-5"></i></span>
+      <div>
+       <p data-template-id="brand-name" class="canva-text font-bold leading-tight"></p>
+       <p data-template-id="brand-subtitle" class="canva-text text-xs opacity-70"></p>
+      </div></button> <button type="button" aria-label="พื้นที่ผู้ดูแล" class="action-btn rounded-xl p-3 border" style="border-color:#dfc9a8;background:#fffaf2;color:#76573d" onclick="showView('admin-login')"> <i data-lucide="settings" class="w-5 h-5"></i> </button>
+    </div>
+   </header>
+   <main class="w-full max-w-6xl mx-auto px-4 py-7 sm:px-8 sm:py-10">
+    <section id="home" class="view active">
+     <div class="text-center max-w-xl mx-auto mb-8">
+      <p data-template-id="home-kicker" class="canva-text font-semibold tracking-widest uppercase text-sm"></p>
+      <h1 data-template-id="home-title" class="canva-text font-extrabold mt-2"></h1>
+      <p data-template-id="home-description" class="canva-text mt-3 opacity-75"></p>
+     </div>
+     <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+      <button data-template-id="receive-tile" type="button" class="canva-card main-tile nav-btn panel rounded-3xl p-6 text-left" onclick="beginTransaction('receive')"> <i data-lucide="package-plus" class="w-8 h-8 mb-8" style="color:#3d7a57"></i> <span data-template-id="receive-title" class="canva-text block font-bold"></span> <span data-template-id="receive-desc" class="canva-text block text-sm mt-1 opacity-70"></span> </button> <button data-template-id="issue-tile" type="button" class="canva-card main-tile nav-btn panel rounded-3xl p-6 text-left" onclick="beginTransaction('issue')"> <i data-lucide="package-minus" class="w-8 h-8 mb-8" style="color:#b54943"></i> <span data-template-id="issue-title" class="canva-text block font-bold"></span> <span data-template-id="issue-desc" class="canva-text block text-sm mt-1 opacity-70"></span> </button> <button data-template-id="stock-tile" type="button" class="canva-card main-tile nav-btn panel rounded-3xl p-6 text-left" onclick="showStock('normal')"> <i data-lucide="clipboard-list" class="w-8 h-8 mb-8" style="color:#c9974e"></i> <span data-template-id="stock-title" class="canva-text block font-bold"></span> <span data-template-id="stock-desc" class="canva-text block text-sm mt-1 opacity-70"></span> </button> <button data-template-id="defect-tile" type="button" class="canva-card main-tile nav-btn panel rounded-3xl p-6 text-left" onclick="showStock('defect')"> <i data-lucide="triangle-alert" class="w-8 h-8 mb-8" style="color:#9b5f32"></i> <span data-template-id="defect-title" class="canva-text block font-bold"></span> <span data-template-id="defect-desc" class="canva-text block text-sm mt-1 opacity-70"></span> </button>
+     </div>
+    </section>
+    <section id="admin-login" class="view">
+     <div class="panel rounded-3xl p-6 sm:p-9 max-w-md mx-auto">
+      <button type="button" class="text-sm underline mb-6" onclick="showView('home')">← กลับหน้าแรก</button>
+      <h1 data-template-id="admin-login-title" class="canva-text font-bold"></h1>
+      <p data-template-id="admin-login-description" class="canva-text mt-2 text-sm opacity-70"></p>
+      <form id="admin-login-form" class="mt-6 space-y-4">
+       <label data-template-id="admin-user-label" class="canva-text block font-semibold" for="admin-username"></label> <input id="admin-username" required type="text" class="w-full rounded-xl border px-4 py-3 bg-white" style="border-color:#dcc6a6" autocomplete="name"> <button data-template-id="admin-login-button" class="canva-button action-btn w-full rounded-xl py-3 font-bold text-white" style="background:#76573d" type="submit"></button>
+      </form>
+     </div>
+    </section>
+    <section id="admin-home" class="view">
+     <div class="flex items-end justify-between gap-4 mb-6">
+      <div>
+       <p data-template-id="admin-kicker" class="canva-text text-sm font-semibold"></p>
+       <h1 data-template-id="admin-title" class="canva-text font-bold mt-1"></h1>
+      </div><button type="button" class="text-sm underline" onclick="showView('home')">หน้าแรก</button>
+     </div>
+     <div class="grid sm:grid-cols-2 gap-4">
+      <button data-template-id="add-product-tile" type="button" class="canva-card nav-btn panel rounded-3xl p-7 text-left" onclick="showView('add-product')"><i data-lucide="barcode" class="w-7 h-7 mb-7" style="color:#76573d"></i><span data-template-id="add-product-title" class="canva-text block font-bold"></span><span data-template-id="add-product-desc" class="canva-text block text-sm mt-1 opacity-70"></span></button> <button data-template-id="history-tile" type="button" class="canva-card nav-btn panel rounded-3xl p-7 text-left" onclick="openHistory()"><i data-lucide="history" class="w-7 h-7 mb-7" style="color:#76573d"></i><span data-template-id="history-title" class="canva-text block font-bold"></span><span data-template-id="history-desc" class="canva-text block text-sm mt-1 opacity-70"></span></button>
+     </div>
+    </section>
+    <section id="add-product" class="view">
+     <div class="panel rounded-3xl p-6 sm:p-8 max-w-3xl mx-auto">
+      <h1 data-template-id="add-product-heading" class="canva-text font-bold"></h1>
+      <p data-template-id="add-product-helper" class="canva-text mt-2 text-sm opacity-70"></p>
+      <form id="product-form" class="grid sm:grid-cols-2 gap-4 mt-7">
+       <div><label data-template-id="barcode-label" class="canva-text block font-semibold mb-2" for="new-barcode"></label><input id="new-barcode" inputmode="numeric" pattern="[0-9]{13}" maxlength="13" required class="w-full rounded-xl border p-3" style="border-color:#dcc6a6">
+       </div>
+       <div><label data-template-id="sku-label" class="canva-text block font-semibold mb-2" for="new-sku"></label><input id="new-sku" required class="w-full rounded-xl border p-3" style="border-color:#dcc6a6">
+       </div>
+       <div><label data-template-id="size-label" class="canva-text block font-semibold mb-2" for="new-size"></label><select id="new-size" required class="w-full rounded-xl border p-3 bg-white" style="border-color:#dcc6a6"><option value="">เลือก Size</option><option value="F">F</option><option value="XS">XS</option><option value="S">S</option><option value="M">M</option><option value="L">L</option><option value="XL">XL</option><option value="2XL">2XL</option><option value="3XL">3XL</option></select>
+       </div>
+       <div><label data-template-id="category-label" class="canva-text block font-semibold mb-2" for="new-category"></label><select id="new-category" class="w-full rounded-xl border p-3 bg-white" style="border-color:#dcc6a6"><option value="normal">งานปกติ</option><option value="defect">งานตำหนิ</option></select>
+       </div>
+       <div class="sm:col-span-2 flex flex-wrap gap-3 pt-3">
+        <button data-template-id="product-save-button" type="submit" class="canva-button action-btn rounded-xl px-6 py-3 text-white font-bold" style="background:#76573d"></button> <button data-template-id="product-back-button" type="button" class="canva-button rounded-xl px-6 py-3 border font-semibold" style="background:#fffaf2;color:#76573d;border-color:#dcc6a6" onclick="showView('admin-home')"></button>
+       </div>
+      </form>
+     </div>
+    </section>
+    <section id="user-name" class="view">
+     <div class="panel rounded-3xl p-6 sm:p-9 max-w-md mx-auto">
+      <h1 data-template-id="user-name-heading" class="canva-text font-bold"></h1>
+      <p data-template-id="user-name-helper" class="canva-text mt-2 text-sm opacity-70"></p>
+      <form id="worker-form" class="mt-6">
+       <label data-template-id="worker-label" class="canva-text block font-semibold mb-2" for="worker-name"></label> <input id="worker-name" required class="w-full rounded-xl border p-3" style="border-color:#dcc6a6">
+       <div class="flex gap-3 mt-5"><button data-template-id="worker-next-button" type="submit" class="canva-button action-btn rounded-xl px-6 py-3 text-white font-bold" style="background:#76573d"></button><button data-template-id="worker-back-button" type="button" class="canva-button rounded-xl px-5 py-3 border" style="border-color:#dcc6a6" onclick="showView('home')"></button>
+       </div>
+      </form>
+     </div>
+    </section>
+    <section id="receive" class="view">
+     <div class="panel rounded-3xl p-6 sm:p-8 max-w-3xl mx-auto">
+      <h1 data-template-id="receive-heading" class="canva-text font-bold"></h1>
+      <p data-template-id="receive-helper" class="canva-text text-sm mt-2 opacity-70"></p>
+      <form id="receive-form" class="grid sm:grid-cols-3 gap-4 mt-7">
+       <div class="sm:col-span-2 relative"><label data-template-id="receive-sku-label" class="canva-text block font-semibold mb-2" for="receive-search"></label><input id="receive-search" autocomplete="off" required class="w-full rounded-xl border p-3" style="border-color:#dcc6a6">
+        <div id="sku-suggestions" class="absolute z-10 w-full mt-1 rounded-xl bg-white border shadow-lg overflow-hidden hidden"></div>
+       </div>
+       <div><label data-template-id="receive-quantity-label" class="canva-text block font-semibold mb-2" for="receive-quantity"></label><input id="receive-quantity" type="number" min="1" required class="w-full rounded-xl border p-3" style="border-color:#dcc6a6">
+       </div>
+       <div><label data-template-id="unit-label" class="canva-text block font-semibold mb-2"></label>
+        <div data-template-id="unit-value" class="canva-text rounded-xl px-4 py-3 bg-[#f3e8d6]"></div>
+       </div>
+       <div class="sm:col-span-3 flex gap-3 pt-2"><button data-template-id="receive-save-button" type="submit" class="canva-button action-btn rounded-xl px-6 py-3 text-white font-bold" style="background:#3d7a57"></button><button data-template-id="receive-back-button" type="button" class="canva-button rounded-xl px-5 py-3 border" style="border-color:#dcc6a6" onclick="showView('home')"></button>
+       </div>
+      </form>
+     </div>
+    </section>
+    <section id="issue" class="view">
+     <div class="flex items-end justify-between mb-5">
+      <div>
+       <h1 data-template-id="issue-heading" class="canva-text font-bold"></h1>
+       <p data-template-id="issue-helper" class="canva-text text-sm mt-1 opacity-70"></p>
+      </div><button type="button" class="text-sm underline" onclick="showView('home')">หน้าแรก</button>
+     </div>
+     <div class="mb-4"><label data-template-id="issue-search-label" class="canva-text font-semibold mr-3" for="issue-search"></label><input id="issue-search" class="rounded-xl border px-4 py-2 w-full sm:w-80 mt-2 sm:mt-0" style="border-color:#dcc6a6">
+     </div>
+     <div id="issue-list" class="table-wrap bg-white"></div>
+    </section>
+    <section id="stock" class="view">
+     <div class="flex items-end justify-between mb-5 gap-4">
+      <div>
+       <h1 id="stock-heading" class="font-bold text-2xl"></h1>
+       <p id="stock-helper" class="text-sm mt-1 opacity-70"></p>
+      </div>
+      <div class="text-right shrink-0">
+       <p data-template-id="stock-updated-label" class="canva-text text-xs opacity-60"></p>
+       <p id="stock-updated-value" class="text-sm font-semibold"></p><button type="button" class="text-sm underline mt-1" onclick="showView('home')">หน้าแรก</button>
+      </div>
+     </div>
+     <div class="mb-4"><label data-template-id="stock-search-label" class="canva-text font-semibold mr-3" for="stock-search"></label><input id="stock-search" class="rounded-xl border px-4 py-2 w-full sm:w-80 mt-2 sm:mt-0" style="border-color:#dcc6a6" autocomplete="off">
+     </div>
+     <div id="stock-list" class="table-wrap bg-white"></div>
+    </section>
+    <section id="history" class="view">
+     <div class="panel rounded-3xl p-6 sm:p-8">
+      <div class="flex justify-between items-center">
+       <h1 data-template-id="history-heading" class="canva-text font-bold"></h1><button type="button" class="text-sm underline" onclick="showView('admin-home')">กลับ</button>
+      </div>
+      <form id="history-filter" class="grid sm:grid-cols-3 gap-4 mt-6 items-end">
+       <div><label data-template-id="history-action-label" class="canva-text block font-semibold mb-2" for="history-action"></label><select id="history-action" class="w-full rounded-xl border p-3" style="border-color:#dcc6a6"><option value="">ทุกประเภท</option><option value="รับเข้า">รับเข้า</option><option value="ตัดออก">ตัดออก</option><option value="เพิ่มสินค้า">เพิ่มสินค้า</option><option value="ลบสินค้า">ลบสินค้า</option></select>
+       </div>
+       <div><label data-template-id="history-date-label" class="canva-text block font-semibold mb-2" for="history-date"></label><input id="history-date" type="date" class="w-full rounded-xl border p-3" style="border-color:#dcc6a6">
+       </div><button data-template-id="history-search-button" type="submit" class="canva-button action-btn rounded-xl p-3 text-white font-bold flex items-center justify-center gap-2" style="background:#76573d"><i data-lucide="search" class="w-4 h-4"></i><span data-template-id="history-search-label" class="canva-text"></span></button> <button id="history-pdf-button" type="button" class="canva-button action-btn rounded-xl p-3 text-white font-bold flex items-center justify-center gap-2" style="background:#b54943" onclick="downloadHistoryPDF()"><i data-lucide="file-down" class="w-4 h-4"></i><span>PDF</span></button>
+      </form>
+      <div id="history-list" class="table-wrap bg-white mt-6"></div>
+     </div>
+    </section>
+    <section id="load-error" class="view">
+     <div class="panel rounded-3xl p-8 max-w-lg mx-auto text-center"><i data-lucide="cloud-off" class="w-10 h-10 mx-auto mb-4" style="color:#b54943"></i>
+      <h1 data-template-id="load-error-heading" class="canva-text font-bold"></h1>
+      <p data-template-id="load-error-text" class="canva-text mt-2 opacity-70"></p><button data-template-id="retry-button" type="button" class="canva-button action-btn mt-6 rounded-xl px-6 py-3 text-white font-bold" style="background:#76573d" onclick="initializeDataSdk()"></button>
+     </div>
+    </section>
+   </main>
+   <div id="toast" class="toast fixed bottom-6 left-1/2 -translate-x-1/2 z-50 rounded-xl px-5 py-3 text-white shadow-xl" role="status" aria-live="polite"></div>
+  </div>
+  <template id="empty-template">
+   <div class="p-8 text-center text-sm opacity-60">
+    ยังไม่มีข้อมูล
+   </div>
+  </template>
+  <script>
+    let backendRecords = [], currentAction = '', workerName = '', initialLoadTimer, selectedReceiveId = '';
+    const $ = id => document.getElementById(id);
+    const products = () => backendRecords.filter(r => r.record_type === 'product');
+    const movements = () => backendRecords.filter(r => r.record_type === 'movement');
+
+    function showView(id) {
+      document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
+      $(id).classList.add('active');
+      window.scrollTo({top:0,behavior:'smooth'});
+    }
+    function toast(message, type='success') {
+      const el=$('toast'); el.textContent=message; el.style.background=type==='error'?'#b54943':'#3d7a57'; el.classList.add('show');
+      clearTimeout(window.toastTimer); window.toastTimer=setTimeout(()=>el.classList.remove('show'),3200);
+    }
+    function now() { return new Date().toISOString(); }
+    function thaiDate(value) { return new Date(value).toLocaleString('th-TH',{dateStyle:'short',timeStyle:'short'}); }
+    function esc(text){ const d=document.createElement('div');d.textContent=text||'';return d.innerHTML; }
+    function showLoadError(){ showView('load-error'); }
+    const handler = { onDataChanged(data) { clearTimeout(initialLoadTimer); backendRecords = data; renderIssue(); renderStock(); renderHistory(); } };
+    async function initializeDataSdk() {
+      clearTimeout(initialLoadTimer);
+      initialLoadTimer=setTimeout(showLoadError,8000);
+      const result=await window.dataSdk.init(handler);
+      if(!result.isOk){clearTimeout(initialLoadTimer);showLoadError();}
+    }
+    function setPending(control,pending,label){control.disabled=pending;control.classList.toggle('opacity-60',pending); if(pending) control.dataset.original=control.textContent, control.textContent='กำลังบันทึก...'; else if(control.dataset.original) control.textContent=control.dataset.original;}
+    async function saveMovement(action, product, qty, reason, user) {
+      return await window.dataSdk.create({record_type:'movement',barcode:product.barcode,sku:product.sku,size:product.size,category:product.category,quantity:qty,status:product.status||'Cont',action,reason:reason||'',user:user||'',date:now(),created_at:now()});
+    }
+    async function beginTransaction(action){ currentAction=action; $('worker-form').reset(); showView('user-name'); }
+    $('worker-form').addEventListener('submit',e=>{e.preventDefault();workerName=$('worker-name').value.trim();showView(currentAction==='receive'?'receive':'issue');if(currentAction==='issue')renderIssue();});
+    $('admin-login-form').addEventListener('submit',e=>{e.preventDefault();showView('admin-home');});
+    $('product-form').addEventListener('submit',async e=>{
+      e.preventDefault(); const btn=e.submitter, barcode=$('new-barcode').value.trim(), sku=$('new-sku').value.trim(), size=$('new-size').value.trim();
+      if(!/^\d{13}$/.test(barcode)) return toast('กรุณากรอกบาร์โค้ดให้ครบ 13 หลัก','error');
+      if(products().some(p=>p.barcode===barcode)) return toast('บาร์โค้ดนี้มีอยู่แล้ว','error');
+      setPending(btn,true);
+      try {
+        const product={record_type:'product',barcode,sku,size,category:$('new-category').value,quantity:0,status:'Cont',action:'',reason:'',user:'',date:'',created_at:now()};
+        const r=await window.dataSdk.create(product);
+        if(!r.isOk) return toast('ไม่สามารถยืนยันการบันทึกได้','error');
+        await saveMovement('เพิ่มสินค้า',product,0,'', 'ผู้ดูแล');
+        $('product-form').reset();toast('บันทึกสำเร็จ');showView('admin-home');
+      } finally {setPending(btn,false);}
+    });
+    $('receive-search').addEventListener('input',()=>{
+      const q=$('receive-search').value.toLowerCase(); selectedReceiveId='';
+      const match=products().filter(p=>p.sku.toLowerCase().includes(q)).slice(0,6); const box=$('sku-suggestions');
+      box.innerHTML=match.length&&q?match.map(p=>`<button type="button" class="block w-full text-left px-4 py-3 hover:bg-[#f8f2e8]" data-id="${p.__backendId}">${esc(p.sku)} · ${esc(p.size)} · ${esc(p.barcode)}</button>`).join(''):''; box.classList.toggle('hidden',!box.innerHTML);
+      box.querySelectorAll('button').forEach(b=>b.onclick=()=>{const p=products().find(x=>x.__backendId===b.dataset.id);selectedReceiveId=p.__backendId;$('receive-search').value=`${p.sku} · ${p.size}`;box.classList.add('hidden');});
+    });
+    $('receive-form').addEventListener('submit',async e=>{
+      e.preventDefault();const btn=e.submitter,p=products().find(x=>x.__backendId===selectedReceiveId),q=Number($('receive-quantity').value);
+      if(!p) return toast('กรุณาเลือกสินค้าจากรายการ','error'); if(q<1)return;
+      setPending(btn,true);try{const update=await window.dataSdk.update({...p,quantity:p.quantity+q});if(!update.isOk)return toast('ไม่สามารถยืนยันการบันทึกได้','error');await saveMovement('รับเข้า',p,q,'',workerName);$('receive-form').reset();selectedReceiveId='';toast('บันทึกสำเร็จ');}finally{setPending(btn,false)}});
+    function renderIssue(){
+      const q=($('issue-search')?.value||'').toLowerCase();
+      const list=products().filter(p=>p.category==='normal'&&(`${p.sku} ${p.barcode} ${p.size}`).toLowerCase().includes(q)).sort((a,b)=>a.sku.localeCompare(b.sku)||a.size.localeCompare(b.size));
+      $('issue-list').innerHTML=list.length?`<table><thead><tr><th>บาร์โค้ด</th><th>SKU</th><th>ไซส์</th><th>คงเหลือ</th><th>จำนวนตัดออก</th><th>เหตุผล</th><th>หน่วย</th><th></th></tr></thead><tbody>${list.map(p=>`<tr data-id="${p.__backendId}"><td>${esc(p.barcode)}</td><td class="font-semibold">${esc(p.sku)}</td><td>${esc(p.size)}</td><td>${p.quantity}</td><td><input aria-label="จำนวนตัดออก" type="number" min="1" max="${p.quantity}" class="issue-qty w-20 rounded-lg border p-2" style="border-color:#dcc6a6"></td><td><select aria-label="เหตุผล" class="issue-reason rounded-lg border p-2" style="border-color:#dcc6a6"><option>ขาย</option><option>PR</option><option>Show</option><option>เข้าห้าง</option></select></td><td>ชิ้น</td><td><button type="button" class="issue-save rounded-lg px-3 py-2 text-white text-sm" style="background:#b54943">บันทึก</button></td></tr>`).join('')}</tbody></table>`:emptyHTML();
+      document.querySelectorAll('.issue-save').forEach(b=>b.onclick=()=>issueProduct(b));
+    }
+    $('issue-search').addEventListener('input',renderIssue);
+    $('stock-search').addEventListener('input',renderStock);
+    async function issueProduct(btn){const row=btn.closest('tr'),p=products().find(x=>x.__backendId===row.dataset.id),q=Number(row.querySelector('.issue-qty').value),reason=row.querySelector('.issue-reason').value;if(!q||q<1)return toast('กรุณาระบุจำนวน','error');if(q>p.quantity)return toast('จำนวนตัดออกมากกว่าคงเหลือ','error');setPending(btn,true);try{const r=await window.dataSdk.update({...p,quantity:p.quantity-q});if(!r.isOk)return toast('ไม่สามารถยืนยันการบันทึกได้','error');await saveMovement('ตัดออก',p,q,reason,workerName);toast('บันทึกสำเร็จ')}finally{setPending(btn,false)}}
+    function showStock(category){window.stockCategory=category;$('stock-heading').textContent=category==='normal'?'เช็คสต็อก':'สินค้าตำหนิ';$('stock-helper').textContent=category==='normal'?'รายการสินค้างานปกติทั้งหมด':'รายการสินค้าหมวดงานตำหนิทั้งหมด';renderStock();showView('stock');}
+    function renderStock(){if(!window.stockCategory)return;const q=($('stock-search')?.value||'').trim().toLowerCase();const latest=backendRecords.map(r=>r.date||r.created_at).filter(Boolean).sort((a,b)=>new Date(b)-new Date(a))[0];$('stock-updated-value').textContent=latest?thaiDate(latest):'ยังไม่มีข้อมูล';const list=products().filter(p=>p.category===window.stockCategory&&(!q||p.sku.toLowerCase().includes(q))).sort((a,b)=>a.sku.localeCompare(b.sku)||a.size.localeCompare(b.size));$('stock-list').innerHTML=list.length?`<table><thead><tr><th>บาร์โค้ด</th><th>SKU</th><th>ไซส์</th><th>คงเหลือ</th>${window.stockCategory==='normal'?'<th>สถานะสินค้า</th>':'<th>ตัดออก</th>'}<th>จัดการ</th></tr></thead><tbody>${list.map(p=>`<tr data-id="${p.__backendId}"><td>${esc(p.barcode)}</td><td class="font-semibold">${esc(p.sku)}</td><td>${esc(p.size)}</td><td>${p.quantity} ชิ้น</td>${window.stockCategory==='normal'?`<td><button class="status-btn rounded-full px-3 py-1 text-sm text-white" style="background:${p.status==='Dis'?'#b54943':'#3d7a57'}">${p.status||'Cont'}</button></td>`:`<td><button class="defect-issue rounded-lg px-3 py-2 text-white text-sm" style="background:#b54943">ตัดออก 1 ชิ้น</button></td>`}<td><button class="delete-btn text-sm underline text-[#b54943]">ลบสินค้า</button></td></tr>`).join('')}</tbody></table>`:emptyHTML();
+      document.querySelectorAll('.status-btn').forEach(b=>b.onclick=()=>toggleStatus(b));document.querySelectorAll('.delete-btn').forEach(b=>b.onclick=()=>deleteProduct(b));document.querySelectorAll('.defect-issue').forEach(b=>b.onclick=()=>defectIssue(b));
+    }
+    async function toggleStatus(btn){const p=products().find(x=>x.__backendId===btn.closest('tr').dataset.id);const r=await window.dataSdk.update({...p,status:p.status==='Dis'?'Cont':'Dis'});if(!r.isOk)toast('เปลี่ยนสถานะไม่สำเร็จ','error');}
+    async function defectIssue(btn){const p=products().find(x=>x.__backendId===btn.closest('tr').dataset.id);if(p.quantity<1)return toast('สินค้าไม่คงเหลือ','error');setPending(btn,true);try{const r=await window.dataSdk.update({...p,quantity:p.quantity-1});if(!r.isOk)return toast('ตัดออกไม่สำเร็จ','error');await saveMovement('ตัดออก',p,1,'นำออกไปใช้','');toast('บันทึกสำเร็จ')}finally{setPending(btn,false)}}
+    async function deleteProduct(btn){if(btn.dataset.confirm!=='yes'){btn.dataset.confirm='yes';btn.textContent='ยืนยันการลบ';return;}const p=products().find(x=>x.__backendId===btn.closest('tr').dataset.id);setPending(btn,true);try{const r=await window.dataSdk.delete(p);if(!r.isOk)return toast('ลบสินค้าไม่สำเร็จ','error');await saveMovement('ลบสินค้า',p,p.quantity,'','ผู้ดูแล');toast('ลบข้อมูลสินค้าแล้ว')}finally{setPending(btn,false)}}
+    function openHistory(){renderHistory();showView('history');}
+    $('history-filter').addEventListener('submit',e=>{e.preventDefault();renderHistory();});
+    function getFilteredHistory(){const action=$('history-action')?.value||'',date=$('history-date')?.value||'';return movements().filter(m=>(!action||m.action===action)&&(!date||m.date.startsWith(date))).sort((a,b)=>new Date(b.date)-new Date(a.date));}
+    function renderHistory(){const list=getFilteredHistory();$('history-list').innerHTML=list.length?`<table><thead><tr><th>ประเภท</th><th>วันที่</th><th>สินค้า</th><th>จำนวน</th><th>เหตุผล</th><th>ผู้ทำรายการ</th></tr></thead><tbody>${list.map(m=>`<tr><td>${esc(m.action)}</td><td>${thaiDate(m.date)}</td><td>${esc(m.sku)} · ${esc(m.size)}</td><td>${m.quantity} ชิ้น</td><td>${esc(m.reason||'-')}</td><td>${esc(m.user||'-')}</td></tr>`).join('')}</tbody></table>`:emptyHTML();}
+    function downloadHistoryPDF(){
+      const list=getFilteredHistory();
+      if(!list.length)return toast('ไม่มีข้อมูลประวัติสำหรับดาวน์โหลด','error');
+      if(!window.jspdf||!window.jspdf.jsPDF)return toast('ไม่สามารถโหลดระบบสร้าง PDF ได้ กรุณาตรวจสอบอินเทอร์เน็ต','error');
+      const btn=$('history-pdf-button');setPending(btn,true);
+      try{
+        const {jsPDF}=window.jspdf,doc=new jsPDF({orientation:'landscape',unit:'mm',format:'a4'});
+        doc.setFontSize(18);doc.text('Stock Movement History',14,16);
+        doc.setFontSize(10);doc.text(`ประเภท: ${$('history-action').value||'ทุกประเภท'}    วันที่: ${$('history-date').value||'ทุกวัน'}`,14,23);
+        doc.text(`จำนวนรายการ: ${list.length}`,14,29);
+        doc.autoTable({startY:34,head:[['ประเภท','วันที่','สินค้า','จำนวน','เหตุผล','ผู้ทำรายการ']],body:list.map(m=>[m.action||'-',new Date(m.date).toLocaleDateString('th-TH'),`${m.sku||'-'} · ${m.size||'-'}`,`${Number(m.quantity)||0} ชิ้น`,m.reason||'-',m.user||'-']),theme:'grid',styles:{font:'helvetica',fontSize:9,cellPadding:2.5},headStyles:{fontStyle:'bold'},margin:{left:14,right:14}});
+        doc.save(`ประวัติสต๊อก_${$('history-date').value||'ทั้งหมด'}_${new Date().toISOString().slice(0,10)}.pdf`);
+        toast('ดาวน์โหลด PDF สำเร็จ');
+      }catch(error){console.error(error);toast('สร้างไฟล์ PDF ไม่สำเร็จ','error');}
+      finally{setPending(btn,false);}
+    }
+    function emptyHTML(){return '<div class="p-8 text-center text-sm opacity-60">ยังไม่มีข้อมูล</div>';}
+    document.addEventListener('DOMContentLoaded',()=>{lucide.createIcons();initializeDataSdk();});
+  </script>
+ </body>
+</html>
